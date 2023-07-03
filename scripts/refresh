@@ -46,12 +46,12 @@ weather() {
     if [[ -f "/home/oli/Src/ansiweather/weather" ]]; then 
         weather=$(cat ~/Src/ansiweather/weather)
         if [[ -z $weather ]]; then
-            echo "󰖐 --"
+            echo "󰖐 ----"
         else
             echo $weather
         fi
     else
-        echo "󰖐 --"
+        echo "󰖐 ----"
     fi
 
 }

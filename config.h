@@ -6,7 +6,7 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx	    = 15;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 1;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -53,7 +53,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "  ",      tile },    /* first entry is default */
 	{ "󱂬  ",      NULL },    /* no layout function means floating behavior */
-	{ "󰎤  ",      monocle },
+	{ "  ",      monocle },
 };
 static const char *monocles[] = { "󰎦 ", "󰎩  ", "󰎬  ", "󰎮  ", "󰎰  ", "󰎵  ", "󰎸  ", "󰎻  ", "󰎾 ", "󰏁  " };
 
@@ -77,6 +77,7 @@ static const char *xkbtoggle[] = { "/home/oli/Src/dwm/scripts/keyset", NULL };
 static const char *downvol[] = { "/home/oli/Src/dwm/scripts/downvol", NULL };
 static const char *upvol[] = { "/home/oli/Src/dwm/scripts/upvol", NULL };
 static const char *mutevol[] = { "/home/oli/Src/dwm/scripts/mutevol", NULL };
+static const char *browser[] = { "firefox", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 static const Key keys[] = {
@@ -84,7 +85,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Tab,    spawn,          {.v = xkbtoggle } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
