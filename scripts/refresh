@@ -24,8 +24,22 @@ network_stat() {
 }
 
 battery() {
+    status=$(cat /sys/class/power_supply/BAT0/status)
     capacity=$(cat /sys/class/power_supply/BAT0/capacity)
-    echo " $capacity%"
+    case "$status" in
+        "Not charging")
+            status_icon="󱟢"
+            ;;
+        "Discharging")
+            status_icon="󱟤"
+            ;;
+        "Charging")
+            status_icon=" "
+            ;;
+        *)
+            ;;
+    esac
+    echo "$status_icon $capacity%"
 }
 
 weather() {

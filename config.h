@@ -20,15 +20,16 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+static const char col_blue[]        = "#83cafa";
 static const char *colors[][3]      = {
 	/*               fg             bg        border   */
 	[SchemeNorm] = { col_gray3,   col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4,   col_cyan,  col_cyan  },
-	[SchemeTitle]  = { col_gray4, col_gray1,  col_cyan  },
+	[SchemeTitle]  = { col_blue, col_gray1,  col_cyan  },
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -50,10 +51,11 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "  ",      tile },    /* first entry is default */
+	{ "󱂬  ",      NULL },    /* no layout function means floating behavior */
+	{ "󰎤  ",      monocle },
 };
+static const char *monocles[] = { "󰎦 ", "󰎩  ", "󰎬  ", "󰎮  ", "󰎰  ", "󰎵  ", "󰎸  ", "󰎻  ", "󰎾 ", "󰏁  " };
 
 /* key definitions */
 #define MODKEY Mod4Mask
