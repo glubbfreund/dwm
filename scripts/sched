@@ -1,0 +1,6 @@
+#!/bin/bash
+while true; do
+    ~/Src/dwm/scripts/refresh	
+	sleep 15 
+done
+

@@ -1,0 +1,75 @@
+#!/bin/bash
+
+spotify() {
+    isplaying=$(/home/oli/Src/i3spotifystatus/getInfo.sh status)
+    if [[ $isplaying == "Playing" ]]; then
+        artist=$(/home/oli/Src/i3spotifystatus/getInfo.sh artist)
+        song=$(/home/oli/Src/i3spotifystatus/getInfo.sh song)
+        echo "<span color='#9ec600'> $artist - $song</span>"
+    fi
+}
+
+radio() {
+    if [[ -f "/home/oli/Dev/bash/station" ]]; then 
+        station=$(cat ~/Dev/bash/station)
+        if [[ ! -z $station ]]; then
+            echo "<span color='#9ec600'>$station</span>"
+        fi
+    fi
+}
+
+network_stat() {
+    ip_addr=$(hostname -I | awk -F' ' '{ print $1 }')
+    echo "󰩠 $ip_addr"
+}
+
+battery() {
+    capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+    echo " $capacity%"
+}
+
+weather() {
+    if [[ -f "/home/oli/Src/ansiweather/weather" ]]; then 
+        weather=$(cat ~/Src/ansiweather/weather)
+        if [[ -z $weather ]]; then
+            echo "󰖐 --"
+        else
+            echo $weather
+        fi
+    else
+        echo "󰖐 --"
+    fi
+
+}
+
+volume_pa() {
+    if [[ -f "/home/oli/Dev/bash/vol" ]]; then 
+        cat ~/Dev/bash/vol
+    else
+        echo "<span color='#83cafa'>󰎄 --</span>"
+    fi
+}
+
+keyboard() {
+    if [[ -f "/home/oli/Dev/bash/xkb" ]]; then 
+        cat ~/Dev/bash/xkb
+    else
+        echo "<span color='#83cafa'> gr</span>"
+    fi
+}
+
+dayinf() {
+	dte=$(date +"%d.%m")
+    echo " $dte"
+}
+
+clock() {
+	time=$(date +"%H:%M")
+	echo "<span color='#83cafa'> $time</span>"
+}
+
+main() {
+    xsetroot -name "$(spotify)$(radio)    $(network_stat)    $(weather)    $(dayinf)    $(volume_pa)    $(keyboard)    $(battery)    $(clock)"
+}
+
+main
