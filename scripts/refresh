@@ -26,12 +26,14 @@ network_stat() {
 battery() {
     status=$(cat /sys/class/power_supply/BAT0/status)
     capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+    color="#bbbbbb"
     case "$status" in
         "Not charging")
             status_icon="󱟢"
             ;;
         "Discharging")
             status_icon="󱟤"
+            color="#83cafa"
             ;;
         "Charging")
             status_icon=" "
@@ -39,7 +41,7 @@ battery() {
         *)
             ;;
     esac
-    echo "$status_icon $capacity%"
+    echo "<span color='$color'>$status_icon $capacity%</span>"
 }
 
 weather() {
