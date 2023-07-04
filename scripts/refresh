@@ -85,7 +85,7 @@ clock() {
 }
 
 main() {
-    xsetroot -name "$(spotify)$(radio)    $(network_stat)    $(weather)    $(dayinf)    $(volume_pa)    $(keyboard)    $(battery)    $(clock)"
+    xsetroot -name "$(spotify)$(radio)    $(network_stat)    $(weather)    $(dayinf)    $(volume_pa)    $(keyboard)    $(battery)    $(clock) "
 }
 
 main
