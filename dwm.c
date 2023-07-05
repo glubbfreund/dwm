@@ -3116,8 +3116,13 @@ autotile(Monitor *m)
         return;
 
     switch (n) {
-        case 1: case 2: case 3: case 4:
+        case 1: case 3: case 4:
             tile(m);
+            break;
+        case 2: 
+            m->mfact = 0.5;
+            tile(m);
+            m->mfact = mfact;
             break;
         case 5: case 6: case 7: case 8: case 9:
             centeredmaster(m);
