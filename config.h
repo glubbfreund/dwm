@@ -41,7 +41,7 @@ typedef struct {
 const char *spcmd1[] = {"thunderbird" , NULL };
 const char *spcmd2[] = {"flatpak", "run", "com.spotify.Client", NULL };
 const char *spcmd3[] = {"kitty", "--title", "pacmixer", "-e", "pacmixer", NULL };
-const char *spcmd4[] = {"kitty", "--title", "PyRadio", "-e", "pyradio", NULL };
+const char *spcmd4[] = {"kitty", "--title", "PyRadio", "-e", "pyradio", "--log-titles", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"thunderbird",      spcmd1},
@@ -63,14 +63,14 @@ static const Rule rules[] = {
 	{ "Gimp",           NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Xfce4-notify",   NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "firefox",        NULL,     NULL,           0,         0,          0,          -1,        -1 },
-	{ "libreoffice-",   NULL,     NULL,           0,         0,          0,          -1,        -1 },
+	{ "libreoffice-",   NULL,     NULL,           0,         1,          0,          -1,        -1 },
 	{ "thunderbird",    NULL,     NULL,           SPTAG(0),  1,          0,          -1,        -1 },
 	{ "Spotify",        NULL,     NULL,           SPTAG(1),  1,          0,          -1,        -1 },
 	{ "kitty",          NULL,  "pacmixer",        SPTAG(2),  1,          0,          -1,        -1 },
 	{ "kitty",          NULL,  "PyRadio",         SPTAG(3),  1,          0,          -1,        -1 },
-	{ "Blueman-manager",NULL,     NULL,           0,         0,          0,          -1,        -1 },
-	{ "Steam",          NULL,     NULL,           0,         0,          0,          -1,        -1 },
-	{ "Skype",          NULL,     NULL,           0,         0,          0,          -1,        -1 },
+	{ "Blueman-manager",NULL,     NULL,           0,         1,          0,          -1,        -1 },
+	{ "Steam",          NULL,     NULL,           0,         1,          0,          -1,        -1 },
+	{ "Skype",          NULL,     NULL,           0,         1,          0,          -1,        -1 },
 	{ NULL,             NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
