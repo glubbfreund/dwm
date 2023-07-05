@@ -3177,13 +3177,15 @@ void
 autotile(Monitor *m)
 {
     unsigned int n;
+    unsigned int fn;
     Client *c;
     
-    for(n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
+    for(n = 0, c = nexttiled(m->clients), fn=0; c; c = nexttiled(c->next), n++)
+        if(!c->isfloating) fn++;
     if (n == 0)
         return;
 
-    switch (n) {
+    switch (fn) {
         case 2:
             m->mfact = 0.5; 
         case 1: case 3: case 4:
