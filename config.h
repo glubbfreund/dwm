@@ -32,8 +32,9 @@ static const char *colors[][3]      = {
 };
 
 /* scratchpads */
-static const int spclh             = 768;        /* height of the scratchpad clients */
-static const int spclw             = 1200;        /* width of the scratchpad clients */
+static const unsigned int use_spc_defaults = 1;
+static const int spch             = 768;        /* height of the scratchpad clients */
+static const int spcw             = 1200;        /* width of the scratchpad clients */
 typedef struct {
 	const char *name;
 	const void *cmd;
