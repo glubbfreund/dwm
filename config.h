@@ -32,14 +32,22 @@ static const char *colors[][3]      = {
 };
 
 /* scratchpads */
+static const int spclh             = 768;        /* height of the scratchpad clients */
+static const int spclw             = 1200;        /* width of the scratchpad clients */
 typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {"thunderbird" , NULL };
+const char *spcmd2[] = {"flatpak", "run", "com.spotify.Client", NULL };
+const char *spcmd3[] = {"kitty", "--title", "pacmixer", "-e", "pacmixer", NULL };
+const char *spcmd4[] = {"kitty", "--title", "PyRadio", "-e", "pyradio", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"thunderbird",      spcmd1},
+	{"Spotify",          spcmd2},
+	{"pacmixer",         spcmd3},
+	{"PyRadio",          spcmd4},
 };
 
 /* tagging */
@@ -51,15 +59,18 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class            instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "kitty",          NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ "Gimp",           NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Xfce4-notify",   NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "firefox",        NULL,     NULL,           0,         0,          0,          -1,        -1 },
 	{ "libreoffice-",   NULL,     NULL,           0,         0,          0,          -1,        -1 },
 	{ "thunderbird",    NULL,     NULL,           SPTAG(0),  1,          0,          -1,        -1 },
+	{ "Spotify",        NULL,     NULL,           SPTAG(1),  1,          0,          -1,        -1 },
+	{ "kitty",          NULL,  "pacmixer",        SPTAG(2),  1,          0,          -1,        -1 },
+	{ "kitty",          NULL,  "PyRadio",         SPTAG(3),  1,          0,          -1,        -1 },
 	{ "Blueman-manager",NULL,     NULL,           0,         0,          0,          -1,        -1 },
 	{ "Steam",          NULL,     NULL,           0,         0,          0,          -1,        -1 },
 	{ "Skype",          NULL,     NULL,           0,         0,          0,          -1,        -1 },
-	{ "kitty",          NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,             NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -121,10 +132,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_v,      view,           {0} },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,     	   {.v = dmenushutdowncmd} },
     { MODKEY,            			XK_t,  	   togglescratch,  {.ui = 0 } },
+    { MODKEY,            			XK_m,  	   togglescratch,  {.ui = 1 } },
+    { MODKEY,            			XK_q,  	   togglescratch,  {.ui = 2 } },
+    { MODKEY,            			XK_p,  	   togglescratch,  {.ui = 3 } },
 	{ MODKEY,                       XK_a,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_c,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_z,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },

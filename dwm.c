@@ -2109,6 +2109,9 @@ showhide(Client *c)
 		return;
 	if (ISVISIBLE(c)) {
 		if ((c->tags & SPTAGMASK) && c->isfloating) {
+            // configure dimensions of the scratchpad clients
+            c->w = spclw;
+            c->h = spclh; 
 			c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);
 			c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2);
 		}
