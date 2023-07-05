@@ -105,7 +105,7 @@ static const char *monocles[] = { "󰎤  ", "󰎧  ", "󰎪  ", "󰎭  ", "󰎱 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 // static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *dmenucmd[] = { "dmenu_run", "-b", "-i", "-p", "DMenu:", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-b", "-i", "-p", "DMenu:", "-m", dmenumon, "-fn", dmenufont, NULL };
 static const char *dmenushutdowncmd[] = { "/home/oli/Dev/bash/dmenu-shutdowndwm", NULL };
 static const char *xkbtoggle[] = { "/home/oli/Src/dwm/scripts/keyset", NULL };
 static const char *downvol[] = { "/home/oli/Src/dwm/scripts/downvol", NULL };
