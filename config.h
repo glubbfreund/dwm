@@ -57,9 +57,9 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "  ",      tile },    /* first entry is default */
 	{ "󱂬  ",      NULL },    /* no layout function means floating behavior */
-	{ "  ",      monocle },
+	{ "󰎃  ",      monocle },
 };
-static const char *monocles[] = { "󰎦 ", "󰎩  ", "󰎬  ", "󰎮  ", "󰎰  ", "󰎵  ", "󰎸  ", "󰎻  ", "󰎾 ", "󰏁  " };
+static const char *monocles[] = { "󰎤  ", "󰎧  ", "󰎪  ", "󰎭  ", "󰎱  ", "󰎳  ", "󰎶  ", "󰎹  ", "󰎼  ", "󰎿  " };
 
 /* key definitions */
 #define MODKEY Mod4Mask

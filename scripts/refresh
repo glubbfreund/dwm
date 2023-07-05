@@ -31,7 +31,7 @@ battery() {
             color="#83cafa"
             ;;
         "Charging")
-            status_icon=" "
+            status_icon=""
             ;;
         *)
             ;;
@@ -76,7 +76,7 @@ dayinf() {
 
 clock() {
 	time=$(date +"%H:%M")
-	echo "<span color='#83cafa'> $time</span>"
+	echo "<span color='#83cafa'>$time</span>"
 }
 
 main() {
