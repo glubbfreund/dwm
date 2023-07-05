@@ -18,11 +18,6 @@ radio() {
     fi
 }
 
-network_stat() {
-    ip_addr=$(hostname -I | awk -F' ' '{ print $1 }')
-    echo "󰩠 $ip_addr"
-}
-
 battery() {
     status=$(cat /sys/class/power_supply/BAT0/status)
     capacity=$(cat /sys/class/power_supply/BAT0/capacity)
@@ -48,12 +43,12 @@ weather() {
     if [[ -f "/home/oli/Src/ansiweather/weather" ]]; then 
         weather=$(cat ~/Src/ansiweather/weather)
         if [[ -z $weather ]]; then
-            echo "󰖐 ----"
+            echo "󱣶 wait"
         else
             echo $weather
         fi
     else
-        echo "󰖐 ----"
+        echo "󱣶 wait"
     fi
 
 }
@@ -85,7 +80,7 @@ clock() {
 }
 
 main() {
-    xsetroot -name "$(spotify)$(radio)    $(network_stat)    $(weather)    $(dayinf)    $(volume_pa)    $(keyboard)    $(battery)    $(clock) "
+    xsetroot -name "$(spotify)$(radio)    $(weather)    $(dayinf)    $(volume_pa)    $(keyboard)    $(battery)    $(clock) "
 }
 
 main
