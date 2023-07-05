@@ -43,6 +43,10 @@ static const Rule rules[] = {
 	{ "Gimp",           NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Xfce4-notify",   NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "firefox",        NULL,     NULL,           0,         0,          0,          -1,        -1 },
+	{ "libreoffice-",   NULL,     NULL,           0,         0,          0,          -1,        -1 },
+	{ "Blueman-manager",NULL,     NULL,           0,         0,          0,          -1,        -1 },
+	{ "Steam",          NULL,     NULL,           0,         0,          0,          -1,        -1 },
+	{ "Skype",          NULL,     NULL,           0,         0,          0,          -1,        -1 },
 	{ "kitty",          NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,             NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
@@ -91,8 +95,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Tab,    spawn,          {.v = xkbtoggle } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
+	{ MODKEY,                       XK_h,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_l,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
