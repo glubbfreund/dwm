@@ -2,15 +2,17 @@
 case "$1" in
 "up")
     ~/Dev/bash/incvol
-    ~/Src/dwm/scripts/refresh
+    ~/Src/dwm/scripts/refresh vol
+    paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
     ;;
 "down")
     ~/Dev/bash/decvol
-    ~/Src/dwm/scripts/refresh
+    ~/Src/dwm/scripts/refresh vol
+    paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
     ;;
 "mute")
     ~/Dev/bash/mute
-    ~/Src/dwm/scripts/refresh
+    ~/Src/dwm/scripts/refresh vol
     ;;
 *)
     echo "Choose between up/down/mute."

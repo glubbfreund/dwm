@@ -11,7 +11,12 @@ spotify() {
 
 brgt() {
     brgt=$(xbacklight | awk -F'.' '{ print $1 }')
-    echo "󰃟 $brgt"
+    if [[ $1 == "bgrt" ]];then
+        color="#9ec600"
+    else
+        color="#bbbbbb"
+    fi
+    echo "<span color='$color'>󰃟 $brgt</span>"
 }
 
 radio() {
@@ -60,17 +65,41 @@ weather() {
 
 volume_pa() {
     if [[ -f "/home/oli/Dev/bash/vol" ]]; then 
-        cat ~/Dev/bash/vol
+        if [[ $1 == "vol" ]];then
+            color="#9ec600"
+        else
+            color="#bbbbbb"
+        fi
+        tmp=$(cat ~/Dev/bash/vol)
+        echo "<span color='$color'>$tmp</span>"
     else
-        echo "<span color='#83cafa'>󰎄 --</span>"
+        if [[ $1 == "vol" ]];then
+            color="#9ec600"
+        else
+            color="#83cafa"
+        fi
+        echo "<span color='$color'>󰎄 --</span>"
     fi
 }
 
 keyboard() {
+
     if [[ -f "/home/oli/Dev/bash/xkb" ]]; then 
-        cat ~/Dev/bash/xkb
+        if [[ $1 == "kbd" ]];then
+            color="#9ec600"
+        else
+            color="#bbbbbb"
+        fi
+        tmp=$(cat ~/Dev/bash/xkb)
+        echo "<span color='$color'>$tmp</span>"
     else
-        echo "<span color='#83cafa'> gr</span>"
+        if [[ $1 == "kbd" ]];then
+            color="#9ec600"
+        else
+            color="#83cafa"
+        fi
+        tmp=$(cat ~/Dev/bash/xkb)
+        echo "<span color='$color'> gr</span>"
     fi
 }
 
@@ -85,7 +114,7 @@ clock() {
 }
 
 main() {
-    xsetroot -name "$(spotify)$(radio)    $(weather)    $(dayinf)    $(brgt)    $(volume_pa)    $(keyboard)    $(battery)    $(clock) "
+    xsetroot -name "$(spotify)$(radio)    $(weather)    $(dayinf)    $(brgt $1)    $(volume_pa $1)    $(keyboard $1)    $(battery)    $(clock) "
 }
 
-main
+main $1

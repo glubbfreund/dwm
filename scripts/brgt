@@ -2,11 +2,11 @@
 case "$1" in
 "up")
     xbacklight +5%
-    ~/Src/dwm/scripts/refresh
+    ~/Src/dwm/scripts/refresh bgrt
     ;;
 "down")
     xbacklight -5%
-    ~/Src/dwm/scripts/refresh
+    ~/Src/dwm/scripts/refresh bgrt
     ;;
 *)
     echo "Choose between up/down."
