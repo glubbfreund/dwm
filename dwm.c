@@ -120,7 +120,7 @@ struct Client {
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
 	int bw, oldbw;
 	unsigned int tags;
-	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isterminal, noswallow;
+	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isterminal, noswallow, notitle;
 	pid_t pid;
 	Client *next;
 	Client *snext;
@@ -173,6 +173,7 @@ typedef struct {
 	int isterminal;
 	int noswallow;
 	int monitor;
+    int notitle;
 } Rule;
 
 typedef struct Systray   Systray;
@@ -394,6 +395,7 @@ applyrules(Client *c)
 			for (m = mons; m && m->num != r->monitor; m = m->next);
 			if (m)
 				c->mon = m;
+            c->notitle = r->notitle;
 		}
 	}
 	if (ch.res_class)
@@ -974,7 +976,7 @@ drawbar(Monitor *m)
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0, False);
 
 	if ((w = m->ww - tw - stw - x) > bh) {
-		if (m->sel) {
+		if (m->sel && !m->sel->notitle) {
 			drw_setscheme(drw, scheme[m == selmon ? SchemeTitle : SchemeNorm]);
 			drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0, False);
 			if (m->sel->isfloating)
