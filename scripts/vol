@@ -1,0 +1,20 @@
+#!/bin/bash
+case "$1" in
+"up")
+    ~/Dev/bash/incvol
+    ~/Src/dwm/scripts/refresh
+    ;;
+"down")
+    ~/Dev/bash/decvol
+    ~/Src/dwm/scripts/refresh
+    ;;
+"mute")
+    ~/Dev/bash/mute
+    ~/Src/dwm/scripts/refresh
+    ;;
+*)
+    echo "Choose between up/down/mute."
+    exit 1
+    ;;
+esac
+

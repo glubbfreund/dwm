@@ -1,0 +1,16 @@
+#!/bin/bash
+case "$1" in
+"up")
+    xbacklight +5%
+    ~/Src/dwm/scripts/refresh
+    ;;
+"down")
+    xbacklight -5%
+    ~/Src/dwm/scripts/refresh
+    ;;
+*)
+    echo "Choose between up/down."
+    exit 1
+    ;;
+esac
+

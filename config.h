@@ -108,9 +108,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-b", "-i", "-p", "DMenu:", "-m", dmenumon, "-fn", dmenufont, NULL };
 static const char *dmenushutdowncmd[] = { "/home/oli/Dev/bash/dmenu-shutdowndwm", NULL };
 static const char *xkbtoggle[] = { "/home/oli/Src/dwm/scripts/keyset", NULL };
-static const char *downvol[] = { "/home/oli/Src/dwm/scripts/downvol", NULL };
-static const char *upvol[] = { "/home/oli/Src/dwm/scripts/upvol", NULL };
-static const char *mutevol[] = { "/home/oli/Src/dwm/scripts/mutevol", NULL };
+static const char *downvol[] = { "/home/oli/Src/dwm/scripts/vol", "down", NULL };
+static const char *brightup[] = { "/home/oli/Src/dwm/scripts/brgt", "up", NULL };
+static const char *brightdown[] = { "/home/oli/Src/dwm/scripts/brgt", "down", NULL };
+static const char *upvol[] = { "/home/oli/Src/dwm/scripts/vol", "up", NULL };
+static const char *mutevol[] = { "/home/oli/Src/dwm/scripts/vol", "mute", NULL };
 static const char *printscr[] = { "flameshot", "gui", NULL };
 static const char *browser[] = { "firefox", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
@@ -162,9 +164,11 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ 0,                   XK_Print,           spawn,          {.v = printscr } },
-	{ 0,                   XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
-	{ 0,                   XF86XK_AudioMute,        spawn, {.v = mutevol } },
-	{ 0,                   XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
+	{ 0,                   XF86XK_AudioLowerVolume, spawn,     {.v = downvol } },
+	{ 0,                   XF86XK_AudioMute,        spawn,     {.v = mutevol } },
+	{ 0,                   XF86XK_AudioRaiseVolume, spawn,     {.v = upvol   } },
+	{ 0,                   XF86XK_MonBrightnessUp,  spawn,     {.v = brightup} },
+	{ 0,                   XF86XK_MonBrightnessDown,spawn,     {.v = brightdown} },
 };
 
 /* button definitions */

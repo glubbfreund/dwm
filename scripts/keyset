@@ -1,4 +1,12 @@
 #!/bin/bash
-~/Dev/bash/setkb
-~/Src/dwm/scripts/refresh	
+case "$1" in
+"up")
+    ;;
+"down")
+    ;;
+*)
+    echo "Fehler: up oder down sind gültige Parameter."
+    exit 1
+    ;;
+esac
 
