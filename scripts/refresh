@@ -9,6 +9,11 @@ spotify() {
     fi
 }
 
+brgt() {
+    brgt=$(xbacklight | awk -F'.' '{ print $1 }')
+    echo "󰃟 $brgt"
+}
+
 radio() {
     if [[ -f "/home/oli/Dev/bash/station" ]]; then 
         station=$(cat ~/Dev/bash/station)
@@ -80,7 +85,7 @@ clock() {
 }
 
 main() {
-    xsetroot -name "$(spotify)$(radio)    $(weather)    $(dayinf)    $(volume_pa)    $(keyboard)    $(battery)    $(clock) "
+    xsetroot -name "$(spotify)$(radio)    $(weather)    $(dayinf)    $(brgt)    $(volume_pa)    $(keyboard)    $(battery)    $(clock) "
 }
 
 main
