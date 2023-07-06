@@ -59,20 +59,20 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class            instance  title           tags mask  isfloating  isterminal  noswallow  monitor  notitle */
-	{ "kitty",          NULL,     NULL,           0,         0,          1,           0,        -1,             0 },
-	{ "Gimp",           NULL,     NULL,           0,         1,          0,           0,        -1,             0 },
-	{ "Xfce4-notify",   NULL,     NULL,           0,         1,          0,           0,        -1,             1 },
-	{ "firefox",        NULL,     NULL,           0,         0,          0,          -1,        -1,             0 },
-	{ "libreoffice-",   NULL,     NULL,           0,         1,          0,          -1,        -1,             0 },
-	{ "thunderbird",    NULL,     NULL,           SPTAG(0),  1,          0,          -1,        -1,             0 },
-	{ "Spotify",        NULL,     NULL,           SPTAG(1),  1,          0,          -1,        -1,             0 },
-	{ "kitty",          NULL,  "pacmixer",        SPTAG(2),  1,          0,          -1,        -1,             0 },
-	{ "kitty",          NULL,  "PyRadio",         SPTAG(3),  1,          0,          -1,        -1,             0 },
-	{ "Blueman-manager",NULL,     NULL,           0,         1,          0,          -1,        -1,             0 },
-	{ "Steam",          NULL,     NULL,           0,         1,          0,          -1,        -1,             0 },
-	{ "Skype",          NULL,     NULL,           0,         1,          0,          -1,        -1,             0 },
-	{ NULL,             NULL,     "Event Tester", 0,         0,          0,           1,        -1,             0 }, /* xev */
+	/* class            instance  title           tags mask  isfloating  isterminal  noswallow  monitor   notitle   canfocus */
+	{ "kitty",          NULL,     NULL,           0,         0,          1,           0,        -1,             0,        1 },
+	{ "Gimp",           NULL,     NULL,           0,         1,          0,           0,        -1,             0,        1 },
+	{ "Xfce4-notify",   NULL,     NULL,           0,         1,          0,           0,        -1,             1,        0 },
+	{ "firefox",        NULL,     NULL,           0,         0,          0,          -1,        -1,             0,        1 },
+	{ "libreoffice-",   NULL,     NULL,           0,         1,          0,          -1,        -1,             0,        1 },
+	{ "thunderbird",    NULL,     NULL,           SPTAG(0),  1,          0,          -1,        -1,             0,        1 },
+	{ "Spotify",        NULL,     NULL,           SPTAG(1),  1,          0,          -1,        -1,             0,        1 },
+	{ "kitty",          NULL,  "pacmixer",        SPTAG(2),  1,          0,          -1,        -1,             0,        1 },
+	{ "kitty",          NULL,  "PyRadio",         SPTAG(3),  1,          0,          -1,        -1,             0,        1 },
+	{ "Blueman-manager",NULL,     NULL,           0,         1,          0,          -1,        -1,             0,        1 },
+	{ "Steam",          NULL,     NULL,           0,         1,          0,          -1,        -1,             0,        1 },
+	{ "Skype",          NULL,     NULL,           0,         1,          0,          -1,        -1,             0,        1 },
+	{ NULL,             NULL,     "Event Tester", 0,         0,          0,           1,        -1,             0,        1 }, /* xev */
 };
 
 /* layout(s) */
