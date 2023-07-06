@@ -63,7 +63,7 @@ static const Rule rules[] = {
 	{ "kitty",          NULL,     NULL,           0,         0,          1,           0,        -1,             0,        1 },
 	{ "Gimp",           NULL,     NULL,           0,         1,          0,           0,        -1,             0,        1 },
 	{ "Xfce4-notify",   NULL,     NULL,           0,         1,          0,           0,        -1,             1,        0 },
-	{ "firefox",        NULL,     NULL,           0,         0,          0,          -1,        -1,             0,        1 },
+	{ "firefox",        NULL,     NULL,           1,         0,          0,          -1,        -1,             0,        1 },
 	{ "libreoffice-",   NULL,     NULL,           0,         1,          0,          -1,        -1,             0,        1 },
 	{ "thunderbird",    NULL,     NULL,           SPTAG(0),  1,          0,          -1,        -1,             0,        1 },
 	{ "Spotify",        NULL,     NULL,           SPTAG(1),  1,          0,          -1,        -1,             0,        1 },
@@ -72,7 +72,7 @@ static const Rule rules[] = {
 	{ "Blueman-manager",NULL,     NULL,           0,         1,          0,          -1,        -1,             0,        1 },
 	{ "Steam",          NULL,     NULL,           0,         1,          0,          -1,        -1,             0,        1 },
 	{ "Skype",          NULL,     NULL,           0,         1,          0,          -1,        -1,             0,        1 },
-	{ NULL,             NULL,     "Event Tester", 0,         0,          0,           1,        -1,             0,        1 }, /* xev */
+	{ NULL,             NULL, "Event Tester",     0,         0,          0,           1,        -1,             0,        1 }, /* xev */
 };
 
 /* layout(s) */

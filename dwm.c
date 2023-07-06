@@ -309,7 +309,7 @@ static const char autostartblocksh[] = "autostart_blocking.sh";
 static const char autostartsh[] = "autostart.sh";
 static Systray *systray = NULL;
 static const char broken[] = "broken";
-static const char dwmdir[] = "dwm";
+static const char dwmdir[] = "Src/dwm/scripts";
 static const char localshare[] = ".local/share";
 static char stext[512];
 static int screen;
@@ -1842,7 +1842,7 @@ runautostart(void)
 		}
 		pathpfx = pathpfx_new;
 
-		if (sprintf(pathpfx, "%s/.%s", home, dwmdir) <= 0) {
+		if (sprintf(pathpfx, "%s/%s", home, dwmdir) <= 0) {
 			free(pathpfx);
 			return;
 		}
