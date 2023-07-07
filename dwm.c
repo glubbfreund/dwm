@@ -85,7 +85,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { SchemeNorm, SchemeSel, SchemeTitle }; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeTitle, SchemeMark }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation, NetSystemTrayOrientationHorz,
        NetWMFullscreen, NetWMSticky, NetActiveWindow, NetWMWindowType,
@@ -986,7 +986,9 @@ drawbar(Monitor *m)
 
 	if ((w = m->ww - tw - stw - x) > bh) {
 		if (m->sel && !m->sel->notitle) {
-			drw_setscheme(drw, scheme[m == selmon ? SchemeTitle : SchemeNorm]);
+            m->sel->issticky ? 
+                drw_setscheme(drw, scheme[SchemeMark]) : 
+                drw_setscheme(drw, scheme[m == selmon ? SchemeTitle : SchemeNorm]);
 			drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0, False);
 			if (m->sel->isfloating)
 				drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
@@ -1056,7 +1058,8 @@ focus(Client *c)
 		detachstack(c);
 		attachstack(c);
 		grabbuttons(c, 1);
-		XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
+	    c->issticky ? XSetWindowBorder(dpy, c->win, scheme[SchemeMark][ColBorder].pixel) 
+            : XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
 		setfocus(c);
 	} else {
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
@@ -2010,10 +2013,14 @@ setsticky(Client *c, int sticky)
 {
 
     if(sticky && !c->issticky) {
+        XSetWindowBorder(dpy, c->win, scheme[SchemeMark][ColBorder].pixel);
+
         XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
                 PropModeReplace, (unsigned char *) &netatom[NetWMSticky], 1);
         c->issticky = 1;
     } else if(!sticky && c->issticky){
+        XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
+
         XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
                 PropModeReplace, (unsigned char *)0, 0);
         c->issticky = 0;
