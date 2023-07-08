@@ -65,7 +65,7 @@ static const Rule rules[] = {
 	{ "kitty",          NULL,     NULL,           0,         0,          1,           0,        -1,             0,        1 },
 	{ "Gimp",           NULL,     NULL,           0,         1,          0,           0,        -1,             0,        1 },
 	{ "Xfce4-notify",   NULL,     NULL,           0,         1,          0,           0,        -1,             1,        0 },
-	{ "firefox",        NULL,     NULL,           1,         0,          0,          -1,        -1,             0,        1 },
+	{ "firefox",        NULL,     NULL,           0,         0,          0,          -1,        -1,             0,        1 },
 	{ "libreoffice-",   NULL,     NULL,           0,         1,          0,          -1,        -1,             0,        1 },
 	{ "thunderbird",    NULL,     NULL,           SPTAG(0),  1,          0,          -1,        -1,             0,        1 },
 	{ "Spotify",        NULL,     NULL,           SPTAG(1),  1,          0,          -1,        -1,             0,        1 },
@@ -87,7 +87,6 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "󱣲  ",      autotile },    /* no layout function means floating behavior */
 	{ "  ",      tile },    /* first entry is default */
-	{ "󰕭  ",      centeredmaster },
 	{ "󰎃  ",      monocle },
 	{ "󱂬  ",      NULL },    /* no layout function means floating behavior */
 };
@@ -125,8 +124,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Tab,    spawn,          {.v = xkbtoggle } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
-	{ MODKEY,                       XK_h,      focusmaster,    {0} },
-	{ MODKEY,                       XK_l,      focusstack,     {.i = 1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -145,9 +142,8 @@ static const Key keys[] = {
     { MODKEY,            			XK_x,  	   togglesticky,  {0} },
 	{ MODKEY,                       XK_a,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_c,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_z,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_z,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
