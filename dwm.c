@@ -210,6 +210,7 @@ static void enternotify(XEvent *e);
 static void expose(XEvent *e);
 static void focus(Client *c);
 static void focusin(XEvent *e);
+static void focusmaster(const Arg *arg);
 static void focusmon(const Arg *arg);
 static void focusstack(const Arg *arg);
 static Atom getatomprop(Client *c, Atom prop);
@@ -265,6 +266,7 @@ static void tile(Monitor *m);
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
 static void togglescratch(const Arg *arg);
+static void togglesticky(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
 static void unfocus(Client *c, int setfocus);
@@ -303,8 +305,6 @@ static Client *swallowingclient(Window w);
 static Client *termforwin(const Client *c);
 static pid_t winpid(Window w);
 
-static void togglesticky(const Arg *arg);
-static void focusmaster(const Arg *arg);
 
 /* variables */
 static const char autostartblocksh[] = "autostart_blocking.sh";
@@ -3280,21 +3280,17 @@ autotile(Monitor *m)
         return;
 
     switch (fn) {
-        case 2:
-            m->mfact = 0.5; 
+        case 2: m->mfact = 0.5; 
         case 1: case 3: case 4:
             tile(m);
             break;
-        case 5: case 6: 
-            m->mfact = 0.4;
-        case 7: case 8: case 9:
+        case 5: case 6: case 7: 
             centeredmaster(m);
             break;
         default:
             monocle(m);
             break;
     }
-
     m->mfact = mfact;
 }
 
