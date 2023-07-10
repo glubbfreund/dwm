@@ -70,8 +70,9 @@ volume_pa() {
         else
             color="#bbbbbb"
         fi
-        tmp=$(cat ~/Dev/bash/vol)
-        echo "<span color='$color'>$tmp</span>"
+        #tmp=$(cat ~/Dev/bash/vol)
+        tmp=$(pactl list sinks | grep '^[[:space:]]Volume:' | tail -n 1 | head -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+        echo "<span color='$color'>󰎄 $tmp</span>"
     else
         if [[ $1 == "vol" ]];then
             color="#9ec600"
