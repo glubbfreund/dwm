@@ -5,14 +5,14 @@ spotify() {
     if [[ $isplaying == "Playing" ]]; then
         artist=$(/home/oli/Src/i3spotifystatus/getInfo.sh artist)
         song=$(/home/oli/Src/i3spotifystatus/getInfo.sh song)
-        echo "<span color='#9ec600'> $artist - $song</span>"
+        echo "<span color='#EEBB74'> $artist - $song</span>"
     fi
 }
 
 brgt() {
     brgt=$(xbacklight | awk -F'.' '{ print $1 }')
     if [[ $1 == "bgrt" ]];then
-        color="#9ec600"
+        color="#EEBB74"
     else
         color="#bbbbbb"
     fi
@@ -23,7 +23,7 @@ radio() {
     if [[ -f "/home/oli/Dev/bash/station" ]]; then 
         station=$(cat ~/Dev/bash/station)
         if [[ ! -z $station ]]; then
-            echo "<span color='#9ec600'>$station</span>"
+            echo "<span color='#EEBB74'>$station</span>"
         fi
     fi
 }
@@ -66,7 +66,7 @@ weather() {
 volume_pa() {
     if [[ -f "/home/oli/Dev/bash/vol" ]]; then 
         if [[ $1 == "vol" ]];then
-            color="#9ec600"
+            color="#EEBB74"
         else
             color="#bbbbbb"
         fi
@@ -75,7 +75,7 @@ volume_pa() {
         echo "<span color='$color'>󰎄 $tmp</span>"
     else
         if [[ $1 == "vol" ]];then
-            color="#9ec600"
+            color="#EEBB74"
         else
             color="#83cafa"
         fi
@@ -87,7 +87,7 @@ keyboard() {
 
     if [[ -f "/home/oli/Dev/bash/xkb" ]]; then 
         if [[ $1 == "kbd" ]];then
-            color="#9ec600"
+            color="#EEBB74"
         else
             color="#bbbbbb"
         fi
@@ -95,7 +95,7 @@ keyboard() {
         echo "<span color='$color'>$tmp</span>"
     else
         if [[ $1 == "kbd" ]];then
-            color="#9ec600"
+            color="#EEBB74"
         else
             color="#83cafa"
         fi
