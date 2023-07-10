@@ -3269,6 +3269,7 @@ autotile(Monitor *m)
             tile(m);
             break;
         case 5: case 6: case 7:
+            m->mfact = 0.4;
             centeredmaster(m);
             break;
         default:
