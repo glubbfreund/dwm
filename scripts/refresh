@@ -1,20 +1,21 @@
 #!/bin/bash
+. "/home/oli/.cache/wal/colors.sh"
 
 spotify() {
     isplaying=$(/home/oli/Src/i3spotifystatus/getInfo.sh status)
     if [[ $isplaying == "Playing" ]]; then
         artist=$(/home/oli/Src/i3spotifystatus/getInfo.sh artist)
         song=$(/home/oli/Src/i3spotifystatus/getInfo.sh song)
-        echo "<span color='#EEBB74'> $artist - $song</span>"
+        echo "<span color='$color9'> $artist - $song</span>"
     fi
 }
 
 brgt() {
     brgt=$(xbacklight | awk -F'.' '{ print $1 }')
     if [[ $1 == "bgrt" ]];then
-        color="#EEBB74"
+        color="$color9"
     else
-        color="#bbbbbb"
+        color="$color15"
     fi
     echo "<span color='$color'>󰃟 $brgt</span>"
 }
@@ -23,7 +24,7 @@ radio() {
     if [[ -f "/home/oli/Dev/bash/station" ]]; then 
         station=$(cat ~/Dev/bash/station)
         if [[ ! -z $station ]]; then
-            echo "<span color='#EEBB74'>$station</span>"
+            echo "<span color='$color9'>$station</span>"
         fi
     fi
 }
@@ -31,14 +32,14 @@ radio() {
 battery() {
     status=$(cat /sys/class/power_supply/BAT0/status)
     capacity=$(cat /sys/class/power_supply/BAT0/capacity)
-    color="#bbbbbb"
+    color="$color15"
     case "$status" in
         "Not charging")
             status_icon="󱟢"
             ;;
         "Discharging")
             status_icon="󱟤"
-            color="#83cafa"
+            color="$color2"
             ;;
         "Charging")
             status_icon=""
@@ -66,9 +67,9 @@ weather() {
 volume_pa() {
     if [[ -f "/home/oli/Dev/bash/vol" ]]; then 
         if [[ $1 == "vol" ]];then
-            color="#EEBB74"
+            color="$color9"
         else
-            color="#bbbbbb"
+            color="$color15"
         fi
         file=$(cat ~/Dev/bash/vol)
         dev=$(pactl list sinks | grep '^[[:space:]]Volume:' | tail -n 1 | head -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
@@ -79,9 +80,9 @@ volume_pa() {
         fi
     else
         if [[ $1 == "vol" ]];then
-            color="#EEBB74"
+            color="$color9"
         else
-            color="#83cafa"
+            color="$color2"
         fi
         echo "<span color='$color'>󰎄 --</span>"
     fi
@@ -91,17 +92,17 @@ keyboard() {
 
     if [[ -f "/home/oli/Dev/bash/xkb" ]]; then 
         if [[ $1 == "kbd" ]];then
-            color="#EEBB74"
+            color="$color9"
         else
-            color="#bbbbbb"
+            color="$color15"
         fi
         tmp=$(cat ~/Dev/bash/xkb)
         echo "<span color='$color'>$tmp</span>"
     else
         if [[ $1 == "kbd" ]];then
-            color="#EEBB74"
+            color="$color9"
         else
-            color="#83cafa"
+            color="$color2"
         fi
         tmp=$(cat ~/Dev/bash/xkb)
         echo "<span color='$color'> gr</span>"
@@ -115,7 +116,7 @@ dayinf() {
 
 clock() {
 	time=$(date +"%H:%M")
-	echo "<span color='#83cafa'>$time</span>"
+	echo "<span color='$color2'>$time</span>"
 }
 
 main() {

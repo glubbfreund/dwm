@@ -2014,19 +2014,14 @@ setsticky(Client *c, int sticky)
 
     if(sticky && !c->issticky) {
         XSetWindowBorder(dpy, c->win, scheme[SchemeMark][ColBorder].pixel);
-
-        selmon->sel->bw = sborderpx;
-
         XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
                 PropModeReplace, (unsigned char *) &netatom[NetWMSticky], 1);
         c->issticky = 1;
     } else if(!sticky && c->issticky){
         XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
-
         XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
                 PropModeReplace, (unsigned char *)0, 0);
 
-        selmon->sel->bw = borderpx;
         c->issticky = 0;
         arrange(c->mon);
     }

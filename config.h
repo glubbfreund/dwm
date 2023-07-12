@@ -1,8 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 #include <X11/XF86keysym.h>
+#include "/home/oli/.cache/wal/colors-wal-dwm.h"
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int fborderpx = 0;        /* border pixel of floating windows */
 static const unsigned int sborderpx = 1;        /* border pixel of sticky windows */
 static const unsigned int gappx	    = 15;
@@ -19,21 +20,6 @@ static const int horizpadbar        = 2;        /* horizontal padding for status
 static const int vertpadbar         = 4;        /* vertical padding for statusbar */
 static const char font[]            = "DejaVuSansM Nerd Font 8";
 static const char dmenufont[]       = "DejaVuSansM Nerd Font:size=8";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#31738d";
-static const char col_blue[]        = "#83cafa";
-static const char col_mark[]        = "#EEBB74";
-static const char *colors[][4]      = {
-	/*               fg             bg        border   */
-	[SchemeNorm] = { col_gray3,   col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray1,   col_cyan,  col_cyan  },
-	[SchemeMark]  = { col_mark,   col_gray1,  col_cyan  },
-	[SchemeTitle]  = { col_blue, col_gray1,  col_cyan  },
-};
-
 
 /* scratchpads */
 static const unsigned int use_spc_defaults = 1;
