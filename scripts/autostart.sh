@@ -6,6 +6,7 @@ picom -b &
 ~/Src/dwm/scripts/sched &
 ~/Dev/bash/weather &
 ~/Dev/bash/radio &
+systemctl --user import-environment; systemctl --user start xsession.target
 nm-applet &
 udiskie -t &
 blueman-applet &

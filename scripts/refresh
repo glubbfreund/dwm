@@ -73,7 +73,7 @@ volume_pa() {
         file=$(cat ~/Dev/bash/vol)
         dev=$(pactl list sinks | grep '^[[:space:]]Volume:' | tail -n 1 | head -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
         if [[ -z $dev ]];then
-            echo "<span color='$color'>󰎄 $file</span>"
+            echo "<span color='$color'>$file</span>"
         else
             echo "<span color='$color'>󰎄 $dev</span>"
         fi

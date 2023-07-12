@@ -2,8 +2,9 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int fborderpx = 0;        /* border pixel of floating windows */
+static const unsigned int sborderpx = 1;        /* border pixel of sticky windows */
 static const unsigned int gappx	    = 15;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
@@ -29,9 +30,10 @@ static const char *colors[][4]      = {
 	/*               fg             bg        border   */
 	[SchemeNorm] = { col_gray3,   col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray1,   col_cyan,  col_cyan  },
-	[SchemeMark]  = { col_mark,   col_gray1,  col_mark  },
+	[SchemeMark]  = { col_mark,   col_gray1,  col_cyan  },
 	[SchemeTitle]  = { col_blue, col_gray1,  col_cyan  },
 };
+
 
 /* scratchpads */
 static const unsigned int use_spc_defaults = 1;
@@ -108,7 +110,7 @@ static const char *monocles[] = { "󰎤  ", "󰎧  ", "󰎪  ", "󰎭  ", "󰎱 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 // static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-b", "-i", "-p", "DMenu:", "-m", dmenumon, "-fn", dmenufont, NULL };
-static const char *dmenushutdowncmd[] = { "/home/oli/Dev/bash/dmenu-shutdowndwm", NULL };
+static const char *dmenushutdowncmd[] = { "/home/oli/Dev/bash/dmenu-shutdown", NULL };
 static const char *xkbtoggle[] = { "/home/oli/Src/dwm/scripts/keyset", NULL };
 static const char *downvol[] = { "/home/oli/Src/dwm/scripts/vol", "down", NULL };
 static const char *brightup[] = { "/home/oli/Src/dwm/scripts/brgt", "up", NULL };
