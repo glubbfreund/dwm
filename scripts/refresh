@@ -120,7 +120,7 @@ dayinf() {
 
 clock() {
 	time=$(date +"%H:%M")
-	echo "<span color='$normalcolor'>$time</span>"
+	echo "<span color='$highlightcolor'>$time</span>"
 }
 
 main() {
