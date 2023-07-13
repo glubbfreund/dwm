@@ -2,8 +2,8 @@
 . "/home/oli/.cache/wal/colors.sh"
 
 normalcolor=$color15
-changedcolor=$color9
-highlightcolor=$color3
+changedcolor=$color1
+highlightcolor=$color1
 
 spotify() {
     isplaying=$(/home/oli/Src/i3spotifystatus/getInfo.sh status)
