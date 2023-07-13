@@ -3,7 +3,7 @@
 
 normalcolor=$color15
 changedcolor=$color9
-highlightcolor=$color2
+highlightcolor=$color3
 
 spotify() {
     isplaying=$(/home/oli/Src/i3spotifystatus/getInfo.sh status)
