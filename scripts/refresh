@@ -114,7 +114,7 @@ keyboard() {
 }
 
 dayinf() {
-	dte=$(date +"%d.%m")
+	dte=$(date +"%a %d.%m")
     echo " $dte"
 }
 
