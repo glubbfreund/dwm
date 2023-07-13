@@ -9,5 +9,6 @@ picom -b &
 nm-applet &
 udiskie -t &
 blueman-applet &
+firefox &
 /usr/libexec/polkit-gnome-authentication-agent-1 &
 setxkbmap -layout de,gr -option caps:escape
