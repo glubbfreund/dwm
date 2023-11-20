@@ -3,9 +3,9 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappx     = 10;        /* gaps between windows */
+static const unsigned int gappx     = 20;        /* gaps between windows */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft  = 1;   /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -20,11 +20,12 @@ static const char col_gray1[]       = "#1c1c1c";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_highlight[]   = "#984400";
+static const char col_highlight[]   = "#3F4759";
+static const char col_strong[]      = "#984400";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_highlight,  col_highlight  },
+	[SchemeSel]  = { col_gray4, col_highlight,  col_strong  },
 };
 
 /* tagging */
@@ -48,11 +49,11 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ " 󱣲 ",      autotile },
-	{ "  ",      tile },    /* first entry is default */
-	{ " 󰕭 ",      centeredmaster },
-	{ "  ",      monocle },
-	{ " 󰖲 ",      NULL },    /* no layout function means floating behavior */
+	{ "󱣲",      autotile },
+	{ "",      tile },    /* first entry is default */
+	{ "󰕭",      centeredmaster },
+	{ "",      monocle },
+	{ "󰖲",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
