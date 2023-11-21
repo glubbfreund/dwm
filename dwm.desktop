@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=dwm
 Comment=dynamic window manager
-Exec=/usr/share/xsessions/dwm
+Exec=/usr/share/xsessions/dwm.sh
 Icon=dwm
 Type=Application
