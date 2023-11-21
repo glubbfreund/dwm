@@ -15,6 +15,9 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int showsystray        = 1;        /* 0 means no systray */
+static const int colortitle         = 0;        /* 0 means no colored title in bar */
+static const int showtitle          = 0;        /* 0 means no title */
+static const int showtagused        = 0;        /* 0 means no rect drawing used tags */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=13" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=13";
 static const char col_gray1[]       = "#1c1c1c";
