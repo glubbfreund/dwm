@@ -69,7 +69,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-i", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_highlight, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-i", NULL };
 static const char *dmenushutdowncmd[] = { "/home/oli/Dev/bash/dmenu-shutdown", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browser[]  = { "firefox", NULL };
