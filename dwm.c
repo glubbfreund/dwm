@@ -289,9 +289,6 @@ static Client *swallowingclient(Window w);
 static Client *termforwin(const Client *c);
 static pid_t winpid(Window w);
 
-static void autotile(Monitor* m);
-static void centeredmaster(Monitor* m); 
-
 /* variables */
 static Systray *systray = NULL;
 static const char broken[] = "broken";
@@ -2900,88 +2897,4 @@ main(int argc, char *argv[])
 	cleanup();
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
-}
-void
-centeredmaster(Monitor *m)
-{
-	unsigned int i, n, h, mw, mx, my, oty, ety, tw;
-	Client *c;
-
-	/* count number of clients in the selected monitor */
-	for (n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
-	if (n == 0)
-		return;
-
-	/* initialize areas */
-	mw = m->ww;
-	mx = 0;
-	my = 0;
-	tw = mw;
-
-	if (n > m->nmaster) {
-		/* go mfact box in the center if more than nmaster clients */
-		mw = m->nmaster ? m->ww * m->mfact : 0;
-		tw = m->ww - mw;
-
-		if (n - m->nmaster > 1) {
-			/* only one client */
-			mx = (m->ww - mw) / 2;
-			tw = (m->ww - mw) / 2;
-		}
-	}
-
-	oty = 0;
-	ety = 0;
-	for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
-	if (i < m->nmaster) {
-		/* nmaster clients are stacked vertically, in the center
-		 * of the screen */
-		h = (m->wh - my) / (MIN(n, m->nmaster) - i);
-		resize(c, m->wx + mx - gappx, m->wy + my, mw - (2*c->bw) + gappx * 2,
-		       h - (2*c->bw), 0);
-		my += HEIGHT(c);
-	} else {
-		/* stack clients are stacked vertically */
-		if ((i - m->nmaster) % 2 ) {
-			h = (m->wh - ety) / ( (1 + n - i) / 2);
-			resize(c, m->wx, m->wy + ety, tw - (2*c->bw),
-			       h - (2*c->bw), 0);
-			ety += HEIGHT(c);
-		} else {
-			h = (m->wh - oty) / ((1 + n - i) / 2);
-			resize(c, m->wx + mx + mw, m->wy + oty,
-			       tw - (2*c->bw), h - (2*c->bw), 0);
-			oty += HEIGHT(c);
-		}
-	}
-}
-
-void
-autotile(Monitor *m)
-{
-    unsigned int n;
-    unsigned int fn;
-    Client *c;
-
-    for(n = 0, c = nexttiled(m->clients), fn=0; c; c = nexttiled(c->next), n++)
-        if(!c->isfloating) fn++;
-    if (n == 0)
-        return;
-
-    switch (fn) {
-        case 1: case 2:
-        case 3: case 4:
-            selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag] =
-                fn == 2 ? 0.5 : mfact;
-            tile(m);
-            break;
-        case 5: case 6: case 7:
-            selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag] = 0.4;
-            centeredmaster(m);
-            break;
-        default:
-            selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag] = mfact;
-            monocle(m);
-            break;
-    }
 }
