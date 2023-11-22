@@ -5,7 +5,7 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappx     = 15;        /* gaps between windows */
+static const unsigned int gappx     = 15;       /* gaps between windows */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft  = 1;   /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -25,10 +25,10 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_highlight,  col_strong  },
-	[SchemeHighlight]  = { col_highlight, col_gray1,  col_gray2  },
+	/*                      fg              bg              border      */
+	[SchemeNorm] =      { col_gray3,        col_gray1,      col_gray2   },
+	[SchemeSel]  =      { col_gray4,        col_highlight,  col_strong  },
+	[SchemeHighlight] = { col_highlight,    col_gray1,      col_gray2   },
 };
 
 /* tagging */
@@ -52,8 +52,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "󱣲",      autotile },
-	{ "",      tile },    /* first entry is default */
+	{ "󱣲",      autotile },  /* first entry is default */
+	{ "",      tile },   
 	{ "󰕭",      centeredmaster },
 	{ "",      monocle },
 	{ "󰖲",      NULL },    /* no layout function means floating behavior */
