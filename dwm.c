@@ -2962,24 +2962,26 @@ autotile(Monitor *m)
     unsigned int n;
     unsigned int fn;
     Client *c;
-    
+
     for(n = 0, c = nexttiled(m->clients), fn=0; c; c = nexttiled(c->next), n++)
         if(!c->isfloating) fn++;
     if (n == 0)
         return;
 
     switch (fn) {
-        case 2: m->mfact = 0.5; 
-        case 1: case 3: case 4:
+        case 1: case 2:
+        case 3: case 4:
+            selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag] =
+                fn == 2 ? 0.5 : mfact;
             tile(m);
             break;
         case 5: case 6: case 7:
-            m->mfact = 0.4;
+            selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag] = 0.4;
             centeredmaster(m);
             break;
         default:
+            selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag] = mfact;
             monocle(m);
             break;
     }
-    m->mfact = mfact;
 }
