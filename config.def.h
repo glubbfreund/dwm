@@ -1,12 +1,11 @@
 /* See LICENSE file for copyright and license details. */
-
 #include <X11/XF86keysym.h>
+#include "../colors/colors.h"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int fborderpx = 0;
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappx     = 10;        /* gaps between windows */
+static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft  = 1;   /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -15,18 +14,21 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int showsystray        = 1;        /* 0 means no systray */
+static const int colortitle         = 0;        /* 0 means no colored title in bar */
+static const int showtitle          = 0;        /* 0 means no title */
+static const int showtagused        = 0;        /* 0 means no rect drawing used tags */
+static const int highlighttiling    = 1;        /* 0 means no rect drawing used tags */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=13" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=13";
 static const char col_gray1[]       = "#1c1c1c";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_highlight[]   = "#3F4759";
-static const char col_strong[]      = "#984400";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_highlight,  col_strong  },
+	[SchemeHighlight]  = { col_highlight, col_gray1,  col_gray2  },
 };
 
 /* tagging */
@@ -69,7 +71,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-i", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_highlight, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-i", "-x", "170", "-z", "1635", NULL };
 static const char *dmenushutdowncmd[] = { "/home/oli/Dev/bash/dmenu-shutdown", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browser[]  = { "firefox", NULL };
