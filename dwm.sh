@@ -1,6 +1,7 @@
 #!/bin/sh
 ~/Dev/bash/status &
 ~/.fehbg &
+blueman-applet &
 nm-applet &
 setxkbmap -layout de,gr
 lxpolkit &
