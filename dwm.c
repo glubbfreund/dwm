@@ -938,7 +938,7 @@ drawbar(Monitor *m)
         if(classictags) 
             drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
         else 
-            drw_circle(drw, x + (w / 2), bh / 2 - 5, 5, 5, 1, 0);
+            drw_circle(drw, x, 0, w, bh, 1, 0);
 
 		if ((showtagused && !classictags) && (occ & 1 << i))
 			drw_rect(drw, x + boxs, boxs, boxw, boxw,
