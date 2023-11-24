@@ -244,7 +244,7 @@ drw_circle(Drw *drw, int x, int y, unsigned int w, unsigned int h, int filled, i
 	if (filled)
 		XFillArc(drw->dpy, drw->drawable, drw->gc, x, y, w, h, 0, 360*64);
 	else
-		XDrawArc(drw->dpy, drw->drawable, drw->gc, x, y, w - 1, h - 1, 0, 360*64);
+		XDrawArc(drw->dpy, drw->drawable, drw->gc, x, y, w, h, 0, 360*64);
 
 }
 

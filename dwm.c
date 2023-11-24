@@ -906,6 +906,9 @@ drawbar(Monitor *m)
 	int boxs = drw->fonts->h / 9;
 	int boxw = drw->fonts->h / 6 + 2;
 	unsigned int i, occ = 0, urg = 0;
+    int circle_start_x, circle_start_y = 0;
+    int circle_width, circle_height = 0;
+
 	Client *c;
 
 	if (!m->showbar)
@@ -933,12 +936,20 @@ drawbar(Monitor *m)
 
     x = 0;
 	for (i = 0; i < LENGTH(tags); i++) {
-        w = TEXTW(tags[i]);
+        w = classictags ? TEXTW(tags[i]) : 20;
         drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
         if(classictags) 
             drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
-        else 
-            drw_circle(drw, x, 0, w, bh, 1, 0);
+        else {
+            circle_width = m->tagset[m->seltags] & 1 << i ? w / 2 : 5; 
+            circle_height = 10;
+            circle_start_x = x + (bh / 2) - (circle_width / 2);
+            circle_start_y = (bh / 2) - (circle_height / 2);
+            drw_circle(drw, 
+                    circle_start_x, circle_start_y, 
+                    circle_width, circle_height, 
+                    1, 0);
+        }
 
 		if ((showtagused && !classictags) && (occ & 1 << i))
 			drw_rect(drw, x + boxs, boxs, boxw, boxw,

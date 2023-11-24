@@ -20,8 +20,8 @@ static const int showtitle          = 0;        /* 0 means no title */
 static const int showtagused        = 0;        /* 0 means no rect drawing used tags */
 static const int classictags        = 0;        /* 0 means graphical 1 means classic with numbers */
 static const int highlighttiling    = 1;        /* 0 means no rect drawing used tags */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=12" };
-static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=12";
+static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=14" };
+static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=14";
 static const char col_gray1[]       = "#1c1c1c";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
