@@ -19,7 +19,7 @@ static const int colortitle                 = 0;        /* 0 means no colored ti
 static const int showtitle                  = 0;        /* 0 means no title */
 
 static const char *fonts[]                  = { "JetBrainsMono Nerd Font Mono:size=12" };
-static const char dmenufont[]               = "JetBrainsMono Nerd Font Mono:size=12";
+static const char dmenufont[]               =   "JetBrainsMono Nerd Font Mono:size=12";
 
 static const char col_gray1[]               = "#1c1c1c";
 static const char col_gray2[]               = "#444444";
