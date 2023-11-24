@@ -927,21 +927,20 @@ drawbar(Monitor *m)
 		if (c->isurgent)
 			urg |= c->tags;
 	}
-	x = 0;
+
+    if(!classictags) 
+        drw_rect(drw, 0, 0, TEXTW(tags[0]) * LENGTH(tags), bh, 1, 1);
+
+    x = 0;
 	for (i = 0; i < LENGTH(tags); i++) {
-        if(classictags) {
-		    w = TEXTW(tags[i]);
-		    drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
-		    drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
-        }
-        else {
-            w = m->tagset[m->seltags] & 1 << i ? 30 : 5;
-		    drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
+        w = TEXTW(tags[i]);
+        drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
+        if(classictags) 
+            drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
+        else 
+            drw_circle(drw, x + (w / 2), bh / 2 - 5, 5, 5, 1, 0);
 
-            XDrawArc(Display *, Drawable, GC, int, int, unsigned int, unsigned int, int, int)
-        }
-
-		if (showtagused && (occ & 1 << i))
+		if ((showtagused && !classictags) && (occ & 1 << i))
 			drw_rect(drw, x + boxs, boxs, boxw, boxw,
 				m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
 				urg & 1 << i);
