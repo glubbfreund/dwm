@@ -1,6 +1,7 @@
 #!/bin/sh
 ~/Dev/bash/status &
 ~/.fehbg &
+~/Dev/bash/monitors &
 blueman-applet &
 nm-applet &
 setxkbmap -layout de,gr
