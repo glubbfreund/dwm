@@ -73,6 +73,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[]           = { "dmenu_run", "-i", NULL };
 static const char *dmenushutdowncmd[]   = { "/home/oli/Dev/bash/dmenu-shutdown", NULL };
+static const char *dmenumobile[]        = { "/home/oli/Dev/bash/dmenu-mobile", NULL };
 static const char *termcmd[]            = { "kitty", NULL };
 static const char *browser[]            = { "firefox", NULL };
 static const char *filemanager[]        = { "nautilus", NULL };
@@ -89,6 +90,7 @@ static const Key keys[] = {
 	{ MODKEY,               XK_d,                       spawn,          {.v = dmenucmd          } },
 	{ MODKEY|ShiftMask,     XK_Return,                  spawn,          {.v = termcmd           } },
 	{ MODKEY|ShiftMask,     XK_e,                       spawn,          {.v = dmenushutdowncmd  } },
+	{ MODKEY,               XK_s,                       spawn,          {.v = dmenumobile       } },
 	{ MODKEY,               XK_e,                       spawn,          {.v = filemanager       } },
 	{ MODKEY,               XK_b,                       spawn,          {.v = browser           } },
 	{ MODKEY,               XK_j,                       focusstack,     {.i = +1 } },
