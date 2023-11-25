@@ -4,6 +4,7 @@
 ~/Dev/bash/monitors &
 blueman-applet &
 nm-applet &
+~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/service/daemon.js &
 setxkbmap -layout de,gr
 lxpolkit &
 picom --experimental-backends -b &

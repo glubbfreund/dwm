@@ -63,8 +63,8 @@ static const Layout layouts[] = {
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ MODKEY|ShiftMask,             KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
@@ -75,6 +75,7 @@ static const char *dmenucmd[]           = { "dmenu_run", "-i", NULL };
 static const char *dmenushutdowncmd[]   = { "/home/oli/Dev/bash/dmenu-shutdown", NULL };
 static const char *termcmd[]            = { "kitty", NULL };
 static const char *browser[]            = { "firefox", NULL };
+static const char *filemanager[]        = { "nautilus", NULL };
 
 static const char *downvol[]            = { "/home/oli/Dev/bash/volume", "down", NULL };
 static const char *upvol[]              = { "/home/oli/Dev/bash/volume", "up", NULL };
@@ -85,10 +86,11 @@ static const char *brightdown[]         = { "/home/oli/Dev/bash/backlight", "dow
 
 static const Key keys[] = {
     /*modifier              key                         function        argument */
-	{ MODKEY,               XK_d,                       spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,     XK_Return,                  spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,     XK_e,                       spawn,          {.v = dmenushutdowncmd } },
-	{ MODKEY,               XK_b,                       spawn,          {.v = browser } },
+	{ MODKEY,               XK_d,                       spawn,          {.v = dmenucmd          } },
+	{ MODKEY|ShiftMask,     XK_Return,                  spawn,          {.v = termcmd           } },
+	{ MODKEY|ShiftMask,     XK_e,                       spawn,          {.v = dmenushutdowncmd  } },
+	{ MODKEY,               XK_e,                       spawn,          {.v = filemanager       } },
+	{ MODKEY,               XK_b,                       spawn,          {.v = browser           } },
 	{ MODKEY,               XK_j,                       focusstack,     {.i = +1 } },
 	{ MODKEY,               XK_k,                       focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,     XK_i,                       incnmaster,     {.i = +1 } },
@@ -99,6 +101,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,   XK_k,                       pushup,         {0} },
 	{ MODKEY,               XK_Return,                  zoom,           {0} },
 	{ MODKEY,               XK_Tab,                     view,           {0} },
+	{ MODKEY|ShiftMask,     XK_q,                       killclient,     {0} },
 	{ MODKEY,               XK_t,                       setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,               XK_f,                       setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,               XK_m,                       setlayout,      {.v = &layouts[1]} },
@@ -118,7 +121,6 @@ static const Key keys[] = {
 	TAGKEYS(                XK_7,                       6)
 	TAGKEYS(                XK_8,                       7)
 	TAGKEYS(                XK_9,                       8)
-	{ MODKEY|ShiftMask,     XK_q,                       killclient,     {0} },
     { 0,                    XF86XK_AudioLowerVolume,    spawn,          {.v = downvol } },
 	{ 0,                    XF86XK_AudioMute,           spawn,          {.v = mutevol } },
 	{ 0,                    XF86XK_AudioRaiseVolume,    spawn,          {.v = upvol   } },
