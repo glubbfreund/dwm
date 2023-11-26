@@ -3,7 +3,7 @@
 #include "../colors/colors.h"
 
 /* appearance */
-static const unsigned int borderpx          = 3;        /* border pixel of windows */
+static const unsigned int borderpx          = 2;        /* border pixel of windows */
 static const unsigned int snap              = 32;       /* snap pixel */
 static const unsigned int gappx             = 15;       /* gaps between windows */
 static const unsigned int systraypinning    = 0;        /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -29,7 +29,7 @@ static const char col_gray4[]               = "#eeeeee";
 
 static const char *colors[][3]              = {
 /*                        fg                bg              border      */
-	[SchemeNorm] =      { col_gray3,        col_gray1,      col_gray2   },
+	[SchemeNorm] =      { col_gray3,        col_gray1,      col_gray1   },
 	[SchemeSel]  =      { col_gray4,        col_highlight,  col_strong  },
 	[SchemeHighlight] = { col_highlight,    col_gray1,      col_gray2   }, 
 };
