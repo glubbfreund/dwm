@@ -44,6 +44,7 @@ install: all
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	cp dwm.sh dwm.desktop /usr/share/xsessions
+	rm config.h
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
