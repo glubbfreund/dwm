@@ -39,9 +39,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   isterminal     noswallow   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           0,             0,          -1 },
-    { "kitty",    NULL,       NULL,       0,            0,           1,             0,          -1 },
+	/* class            instance    title       tags mask     isfloating   isterminal     noswallow   monitor */
+	{ "Gimp",           NULL,       NULL,       0,            1,           0,             0,          -1 },
+    { "kitty",          NULL,       NULL,       0,            0,           1,             0,          -1 },
+    { "Evolution",      NULL,       NULL,       1 << 3,       0,           1,             0,          -1 },
+    { "Firefox-esr",    NULL,       NULL,       1 << 1,       0,           1,             0,          -1 },
 };
 
 static const char *tags[] = { "1", "2", "3", "4" };
