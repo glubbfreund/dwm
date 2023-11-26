@@ -11,5 +11,4 @@ lxpolkit &
 picom --experimental-backends -b &
 xautolock -time 20 -locker i3lock-fancy &
 evolution &
-firefox & 
 dwm
